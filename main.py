@@ -117,6 +117,7 @@ def main():
         shotDelta += delta
         enemyShotDelta += delta
         
+        # if the player kills all enemies, play a victory sound
         if score == 7000:
             pg.mixer.music.stop()
             victory_sound = pg.mixer.Sound("./assets/Victory!.wav")
@@ -125,6 +126,7 @@ def main():
             time.sleep(5)
             running = False
             
+        # if the player runs out of lives, play a lose sound
         if player.health == 0:
             pg.mixer.music.stop()
             victory_sound = pg.mixer.Sound("./assets/Lose.wav")
