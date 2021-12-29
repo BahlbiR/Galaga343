@@ -23,21 +23,22 @@ def main():
     background = pg.image.load("./assets/background.png").convert_alpha()
     background = pg.transform.scale(background, (1024, 768))
     
-    # Create a player - TODO
+    # Create a player
     player = Player()
 
-    # Create enemy and projectile Groups - TODO
+    # Create enemy and projectile Groups
     enemies = pg.sprite.Group()
     projectiles = pg.sprite.Group()
     enemy_projectiles = pg.sprite.Group()
 
+    # Add hoard of enemy spaceships
     for i in range(500, 1000, 75):
         for j in range(100, 600, 50):
             enemy = Enemy((i, j))
             enemies.add(enemy)
 
     # Start sound - Load background music and start it
-    # playing on a loop - TODO
+    # playing on a loop 
     pg.mixer.music.load('./assets/cpu-talk.mp3')
     pg.mixer.music.play(-1, 0.0)
 
@@ -46,7 +47,7 @@ def main():
     font_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), "./assets", "PermanentMarker-Regular.ttf")
     font_size = 64
     font = pg.freetype.Font(font_path, font_size)
-    # Make a tuple for FONTCOLOR - TODO
+    # Tuple for FONTCOLOR 
     FONTCOLOR = (255, 255, 0)
     # Startup the main game loop
     running = True
@@ -112,7 +113,7 @@ def main():
         # When drawing is done, flip the buffer.
         pg.display.flip()
 
-        # How much time has passed this loop?
+        # Time between previous frame and current frame
         delta = clock.tick(fps) / 1000.0
         shotDelta += delta
         enemyShotDelta += delta
