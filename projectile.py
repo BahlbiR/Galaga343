@@ -18,9 +18,11 @@ class Projectile(pg.sprite.Sprite):
         screen.blit(self.image, self.rect)
 
     def update(self, delta):
+        # If the player misses an enemy, remove it from the screen
         self.rect.x += 1000 * delta
         if self.rect.x > 1024:
             self.kill()
+        # If the player kills an enemy, remove ut from the game
         collision = pg.sprite.spritecollideany(self, self.enemies)
         if collision:
             collision.kill()
