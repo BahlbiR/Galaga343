@@ -2,14 +2,13 @@ import os
 import pygame as pg
 
 
-# Complete me! - TODO
 class Enemy(pg.sprite.Sprite):
-    move = False
+    move = False    
     def __init__(self, position):
         super(Enemy, self).__init__()
         self.image = pg.image.load(os.path.join('assets', 'Ship2.png')).convert_alpha()
         self.image = pg.transform.flip(self.image, True, False)     # Flip the image of the ships to face the player
-        self.image.set_colorkey((0, 0, 0))
+        self.image.set_colorkey((0, 0, 0))     # Ignore the black boxes surroundig the enemy ship
         self.rect = self.image.get_rect(topleft = (position[0], position[1]))       
         Enemy.move = False
 
